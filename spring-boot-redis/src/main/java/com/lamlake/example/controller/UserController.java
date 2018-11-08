@@ -5,6 +5,7 @@ import com.lamlake.example.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +16,7 @@ public class UserController {
     private UserDao userDao;
 
     @RequestMapping("/getUser")
+    @GetMapping()
     @Cacheable("userCache")
     public User getUser() {
         System.out.println("如果第二次没有走到这里说明缓存被添加了");

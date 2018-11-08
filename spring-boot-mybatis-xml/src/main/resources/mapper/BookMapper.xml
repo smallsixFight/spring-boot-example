@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lamlake.example.mapper.BookMapper">
+    <resultMap id="BaseResultMap" type="com.lamlake.example.domain.entity.Book">
+        <result column="book_id" property="bookId" jdbcType="BIGINT" />
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="number" property="number" jdbcType="INTEGER" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        book_id, name, number
+    </sql>
+    <select id="getAll" resultMap="BaseResultMap">
+        SELECT 
+          <include refid="Base_Column_List" />
+        FROM
+          book
+    </select>
+    <select id="getById" resultMap="BaseResultMap">
+        SELECT
+          <include refid="Base_Column_List" />
+        FROM
+          book
+        WHERE
+          book_id = #{id}
+    </select>
+    <insert id="insert" parameterType="com.lamlake.example.domain.entity.Book">
+        INSERT INTO
+          book
+        VALUES (
+          #{bookId}, #{name}, #{number}
+        )
+    </insert>
+    <delete id="delete">
+        DELETE FROM
+          book
+        WHERE
+          book_id = #{id}
+    </delete>
+    <update id="update" parameterType="com.lamlake.example.domain.entity.Book">
+        UPDATE
+          book
+        SET
+          <if test="name != null">name = #{name},</if>
+          <if test="number != null">number = #{number}</if>
+        WHERE
+          book_id = #{bookId}
+    </update>
+</mapper>

@@ -1,0 +1,15 @@
+server:
+  port: 9999
+
+# database config
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/ssm?useSSL=false&serverTimezone=Hongkong
+    username: root
+    password: root
+
+# MyBatis config
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: com.lamlake.example.domain.entity

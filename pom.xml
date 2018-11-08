@@ -13,6 +13,8 @@
     <modules>
         <module>spring-boot-web-example</module>
         <module>spring-boot-redis</module>
+        <module>spring-boot-mybatis</module>
+        <module>spring-boot-mybatis-xml</module>
     </modules>
 
     <parent>
@@ -43,6 +45,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <!-- <scope>provided</scope> -->
         </dependency>
 
         <!-- 热部署 -->
