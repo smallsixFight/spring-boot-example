@@ -12,4 +12,4 @@ spring:
 # MyBatis config
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-#  type-aliases-package: com.lamlake.example.domain.entity
+  type-aliases-package: com.lamlake.example.domain.entity

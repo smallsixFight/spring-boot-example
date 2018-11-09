@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lamlake.example.mapper.BookMapper">
-    <resultMap id="BaseResultMap" type="com.lamlake.example.domain.entity.Book">
+    <resultMap id="BaseResultMap" type="Book">
         <result column="book_id" property="bookId" jdbcType="BIGINT" />
         <result column="name" property="name" jdbcType="VARCHAR"/>
         <result column="number" property="number" jdbcType="INTEGER" />
@@ -23,7 +23,7 @@
         WHERE
           book_id = #{id}
     </select>
-    <insert id="insert" parameterType="com.lamlake.example.domain.entity.Book">
+    <insert id="insert" parameterType="Book">
         INSERT INTO
           book
         VALUES (
@@ -36,7 +36,7 @@
         WHERE
           book_id = #{id}
     </delete>
-    <update id="update" parameterType="com.lamlake.example.domain.entity.Book">
+    <update id="update" parameterType="Book">
         UPDATE
           book
         SET
