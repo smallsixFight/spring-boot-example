@@ -1,0 +1,48 @@
+# 数据库配置
+spring:
+  datasource:
+  # 下面三个必填
+    url: jdbc:mysql://127.0.0.1:3306/ssm?useSSL=false&serverTimezone=Hongkong
+    username: root
+    password: root
+    # driver-class-name 非必填，可根据 url 判断
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    # Druid 数据源配置
+    druid:
+      # 初始化时建立的连接个数
+      inital-size: 5
+      # 最大连接数量
+      max-active: 26
+      # 最小连接数量
+      min-idle: 2
+      # 获取链接时最大等待时间，单位毫秒
+      max-wait: 20000
+      # 是否缓存 preparedStatement，默认 false
+      pool-prepared-statements: false
+      # 启动需要配置大于 0。当大于 0 时，pool-prepared-statements 会触发修改会 true
+      max-pool-prepared-statement-per-connection-size: -1
+      # 用来检测连接是否有效的 sql
+      validation-query: select 1
+      # 检测连接是否有效的超时时间，单位秒
+      validation-query-timeout: 1
+      # 申请连接时执行 validation-query 检测连接是否有效，默认 true
+      test-on-borrow: true
+      # 归还连接时执行 validation-query 检测连接是否有效，默认 false
+      test-on-return: false
+      # 如果空闲时间大于 timeBetweenEvictionRunsMillis，执行 validation-query 检测连接是否有效，默认为 false，建议设置为 true，不影响性能
+      test-while-idle: true
+      # 连接池中的 minIdle 数量以内的连接，空闲时间超过 minEvictableIdleTimeMillis，则会执行 keepAlive 操作，默认 false
+      keep-alive: false
+      # 1）Destroy 线程会检测连接的间隔时间，如果连接空闲时间大于等于 minEvictableTimeMillis 则关闭连接
+      # 2）testWhileIdle 的判断依据；单位毫秒，默认 1 分钟
+      time-between-eviction-runs-millis: 10000
+      # 连接保持空闲不被驱逐的最小时间，默认 30 分钟
+      min-evictable-idle-time-millis: 30000
+      # 启动异步关闭连接
+      async-close-connection-enable: true
+      # Spring监控AOP切入点，如x.y.z.service.*,配置多个英文逗号分隔
+      #aop-patterns: com.alibaba.druid.spring.boot.demo.service.*
+
+      # 监控配置
+#      filters: stat,wall
