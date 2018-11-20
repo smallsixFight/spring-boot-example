@@ -24,8 +24,8 @@ public class BookMapperTest {
 
     @Test
     public void testQueryOne() {
-        Book book = bookMapper.getById(1001);
-        System.out.println(book.toString());
+        Book book = bookMapper.getById(1007);
+        System.out.println(book);
     }
 
     @Test

@@ -16,6 +16,7 @@
         <module>spring-boot-mybatis</module>
         <module>spring-boot-mybatis-xml</module>
         <module>spring-boot-mybatis-druid</module>
+        <module>spring-boot-shiro</module>
     </modules>
 
     <parent>
