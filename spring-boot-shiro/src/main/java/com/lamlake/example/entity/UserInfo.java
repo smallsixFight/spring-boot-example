@@ -19,6 +19,5 @@ public class UserInfo {
     private Timestamp createTime;
     private Timestamp updateTime;
     private String remark;
-    private List<SysRole> roleList;
 
 }

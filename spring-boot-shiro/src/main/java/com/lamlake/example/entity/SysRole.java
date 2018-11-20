@@ -14,6 +14,4 @@ public class SysRole {
     private Timestamp createTime;
     private Timestamp updateTime;
     private String remark;
-    private List<Resource> resourceList;
-    private List<UserInfo> userInfoList;
 }

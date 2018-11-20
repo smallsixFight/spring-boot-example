@@ -14,6 +14,5 @@ public class Resource {
     private Integer type;
     private Integer status;
     private String operations;
-    private List<SysRole> sysRoleList;
 
 }
