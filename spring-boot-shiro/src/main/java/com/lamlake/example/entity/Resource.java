@@ -2,8 +2,6 @@ package com.lamlake.example.entity;
 
 import lombok.Data;
 
-import java.util.List;
-
 @Data
 public class Resource {
 
