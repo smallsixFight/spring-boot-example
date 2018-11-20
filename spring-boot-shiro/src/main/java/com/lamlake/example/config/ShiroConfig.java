@@ -52,6 +52,7 @@ public class ShiroConfig {
         return securityManager;
     }
 
+    // 开启注解
     @Bean
     public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
         AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
