@@ -15,8 +15,12 @@ public class ResultGenerator {
         return new Result(-1, ResultStateEnum.FAIL, message);
     }
 
-    public static Result genUnauthorizedResult() {
+    public static Result getUnauthorizedResult() {
         return new Result(1, ResultStateEnum.UNAUTHORIZED, "无该资源的操作权限！");
+    }
+
+    public static Result getNotLogin(String message) {
+        return new Result(2, ResultStateEnum.NOT_LOGIN, message);
     }
 
     public static Result genNotFoundResult() {

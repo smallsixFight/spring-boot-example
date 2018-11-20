@@ -12,7 +12,7 @@ public class MyControllerAdvice {
     public Result<?> UnauthorizedExceptionHandler (Exception ex) {
         System.out.println("统一异常处理...");
         System.out.println("权限不足");
-        return ResultGenerator.genUnauthorizedResult();
+        return ResultGenerator.getUnauthorizedResult();
     }
 
     @ExceptionHandler(value = Exception.class)
