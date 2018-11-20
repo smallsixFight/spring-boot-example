@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lamlake.example.dao.SysRoleDao">
+    <resultMap id="BaseResultMap" type="SysRole">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="role_name" property="roleName" jdbcType="VARCHAR" />
+        <result column="status" property="status" jdbcType="INTEGER" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+        <result column="remark" property="remark" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select id="getRolesByUserId" resultMap="BaseResultMap">
+        select
+          t2.id, t2.role_name, t2.status, t2.create_time, t2.update_time, t2.remark
+        from
+          role_users t1, sys_role t2
+        where
+          t1.u_id = #{id} and t2.id = t1.role_id
+    </select>
+</mapper>

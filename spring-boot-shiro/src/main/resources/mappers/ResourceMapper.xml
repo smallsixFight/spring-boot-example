@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lamlake.example.dao.ResourceDao">
+    <resultMap id="BaseResultMap" type="Resource">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="url" property="url" jdbcType="VARCHAR" />
+        <result column="type" property="type" jdbcType="INTEGER" />
+        <result column="status" property="status" jdbcType="INTEGER" />
+        <result column="operations" property="operations" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select id="getResourcesByRoleId" resultMap="BaseResultMap">
+      select
+        t2.id, t2.name, t2.parent_id, t2.url, t2.status, t2.type, t2.operations
+      from
+        role_resources t1, resources t2
+      where
+        t1.role_id = #{id} and t2.id = t1.resource_id
+    </select>
+</mapper>
